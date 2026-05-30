@@ -10,5 +10,24 @@ function sortearElementoComputador(elementos) {
     return elementos[indiceAleatorio];
 }
 
-console.log("O computador escolheu: " + sortearElementoComputador(elementos));
 
+const elementoUsuario = prompt("Digite pedra, papel ou tesoura: ").toLowerCase();
+
+const elementoComputador = sortearElementoComputador(elementos);
+
+console.log("Você escolheu: " + elementoUsuario + " | Computador escolheu: " + elementoComputador);
+
+
+function determinaVencedor(usuario, computador) {
+    if (computador === usuario) {
+        return "Deu empate";
+    }else if(
+        (usuario === "papel" && computador === "pedra") ||
+        (usuario === "pedra" && computador === "tesoura") ||
+        (usuario === "tesoura" && computador === "papel")
+    ){
+        return "Voce ganhou!";
+    }else{
+        return "O computador ganhou!";
+    }
+}

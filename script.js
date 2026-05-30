@@ -1,12 +1,7 @@
 const elementos = ["pedra", "papel", "tesoura"];
 
-console.log(elementos)
-
-console.log(elementos)
-
 function sortearElementoComputador(elementos) {
     const indiceAleatorio = Math.floor(Math.random() * elementos.length);
-
     return elementos[indiceAleatorio];
 }
 
@@ -31,3 +26,5 @@ function determinaVencedor(usuario, computador) {
         return "O computador ganhou!";
     }
 }
+
+console.log(determinaVencedor(elementoUsuario, elementoComputador));

@@ -5,6 +5,9 @@ function App() {
     const [escolhaDoComputador, setEscolhaDoComputador] = useState("");
     const [resultadoFinal, setResultadoFinal] = useState("");
 
+    const [pontosUsuario, setPontosUsuario] = useState(0);
+    const [pontosComputador, setPontosComputador] = useState(0);
+
     async function jogar(escolha) {
         try{
             const respostaHTTP = await fetch(`http://localhost:3000/jogar/${escolha}`);
@@ -12,6 +15,12 @@ function App() {
             setEscolhaDoUsuario(dadosDaAPI.usuario);
             setEscolhaDoComputador(dadosDaAPI.computador);
             setResultadoFinal(dadosDaAPI.vencedor);
+
+            if(dadosDaAPI.vencedor === "Você ganhou!"){
+                setPontosUsuario(pontosUsuario + 1);
+            }else if(dadosDaAPI.vencedor === "O computador ganhou!"){
+                setPontosComputador(pontosComputador + 1);
+            }
         }catch(erro){
             console.error("Erro ao conectar com a API:", erro);
             setResultadoFinal("Erro no servidor. A API está ligada?");

@@ -5,7 +5,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const elementos = ["pedra", "papel", "tesoura"];
+const elementos = ["pedra", "papel", "tesoura", "lagarto", "spock"];
 
 function sortearElementoComputador(elementos) {
     const indiceAleatorio = Math.floor(Math.random() * elementos.length);
@@ -18,7 +18,15 @@ function determinarVencedor(jogador, computador){
     }else if(
         (jogador === "papel" && computador === "pedra") ||
         (jogador === "pedra" && computador === "tesoura") ||
-        (jogador === "tesoura" && computador === "papel")
+        (jogador === "tesoura" && computador === "papel") ||
+
+        (jogador === "papel" && computador === "spock") ||
+        (jogador === "pedra" && computador === "lagarto") ||
+        (jogador === "tesoura" && computador === "lagarto") ||
+        (jogador === "lagarto" && computador === "spock") ||
+        (jogador === "lagarto" && computador === "papel") ||
+        (jogador === "spock" && computador === "tesoura") ||
+        (jogador === "spock" && computador === "pedra")
     ){
         return "Você ganhou!";
     }else{

@@ -43,3 +43,26 @@ Para rodar este projeto na sua máquina, você precisará ter o [Node.js](https:
 ```bash
 git clone [https://github.com/seu-usuario/pedra-papel-tesoura-js.git](https://github.com/seu-usuario/pedra-papel-tesoura-js.git)
 cd pedra-papel-tesoura-js
+
+```
+**2. Iniciando a API (Backend):**
+Abra o terminal na pasta raiz do projeto e rode:
+```bash
+cd api-node
+npm install
+node server.js
+```
+
+**3. Iniciando a Interface (Frontend):**
+Abra um novo terminal na pasta raiz e navegue até a pasta do React:
+```bash
+cd jogo-react
+npm install
+npm run dev
+```
+
+Acesse o link gerado no terminal (geralmente http://localhost:5173) para jogar!
+
+
+
+

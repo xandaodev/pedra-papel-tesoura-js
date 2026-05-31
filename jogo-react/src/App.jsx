@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './App.css';
 
 function App() {
     const [escolhaDoUsuario, setEscolhaDoUsuario] = useState("");
@@ -28,28 +29,34 @@ function App() {
     }
 
     return (
-        <div>
-            <h1>Pedra, Papel e Tesoura</h1>
+        <div className="container">
+            <h1>📄✂️ Jokenpô + Lagarto e Spock 🦎🖖</h1>
 
-            <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
-                <div style={{ padding: '10px', border: '2px solid green', borderRadius: '8px' }}>
-                    <h2>Você: {pontosUsuario}</h2>
+            <div className="placar">
+                <div className="pontos-box voce">
+                    <h2>Você</h2>
+                    <h1>{pontosUsuario}</h1>
                 </div>
-                <div style={{ padding: '10px', border: '2px solid red', borderRadius: '8px' }}>
-                    <h2>PC: {pontosComputador}</h2>
+                <div className="pontos-box pc">
+                    <h2>PC</h2>
+                    <h1>{pontosComputador}</h1>
                 </div>
             </div>
 
-            <button onClick={() => jogar("pedra")}>Pedra</button>
-            <button onClick={() => jogar("papel")}>Papel</button>
-            <button onClick={() => jogar("tesoura")}>Tesoura</button>
-            <button onClick={() => jogar("lagarto")}>Lagarto</button>
-            <button onClick={() => jogar("spock")}>Spock</button>
+            <div className="botoes">
+                <button className="btn-jogada" onClick={() => jogar("pedra")}>🪨 Pedra</button>
+                <button className="btn-jogada" onClick={() => jogar("papel")}>📄 Papel</button>
+                <button className="btn-jogada" onClick={() => jogar("tesoura")}>✂️ Tesoura</button>
+                <button className="btn-jogada" onClick={() => jogar("lagarto")}>🦎 Lagarto</button>
+                <button className="btn-jogada" onClick={() => jogar("spock")}>🖖 Spock</button>
+            </div>
 
-            <div style={{ marginTop: '20px' }}>
-                <p><strong>Você escolheu:</strong> {escolhaDoUsuario} </p>
-                <p><strong>Computador escolheu:</strong> {escolhaDoComputador} </p>
-                <h2><strong>Resultado:</strong> {resultadoFinal} </h2>
+            <div className="resultado-box">
+                <p>Você escolheu: <strong>{escolhaDoUsuario || "..."}</strong> </p>
+                <p>Computador escolheu: <strong>{escolhaDoComputador || "..."}</strong> </p>
+                <h2 style={{ marginTop: '1rem', color: resultadoFinal === 'Você ganhou!' ? '#a6e3a1' : resultadoFinal === 'O computador ganhou!' ? '#f38ba8' : '#cdd6f4' }}>
+                    {resultadoFinal || "Aguardando jogada..."}
+                </h2>
             </div>
         </div>
     );

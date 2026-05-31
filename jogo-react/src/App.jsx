@@ -1,7 +1,17 @@
+const elementos = ["pedra", "papel", "tesoura"];
+
+
+function sortearElementoComputador(elementos) {
+    const indiceAleatorio = Math.floor(Math.random() * elementos.length);
+    return elementos[indiceAleatorio];
+}
+
+
 function App() {
 
   function jogar(escolhaDoUsuario) {
-    console.log("Voce clicou em: " + escolhaDoUsuario);
+      const escolhaComputador = sortearElementoComputador(elementos);
+    console.log("Voce clicou em: " + escolhaDoUsuario + "; e o computador escolheu: " + escolhaComputador);
   }
   return (
       <div>

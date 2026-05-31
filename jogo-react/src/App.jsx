@@ -31,6 +31,15 @@ function App() {
         <div>
             <h1>Pedra, Papel e Tesoura</h1>
 
+            <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
+                <div style={{ padding: '10px', border: '2px solid green', borderRadius: '8px' }}>
+                    <h2>Você: {pontosUsuario}</h2>
+                </div>
+                <div style={{ padding: '10px', border: '2px solid red', borderRadius: '8px' }}>
+                    <h2>PC: {pontosComputador}</h2>
+                </div>
+            </div>
+
             <button onClick={() => jogar("pedra")}>Pedra</button>
             <button onClick={() => jogar("papel")}>Papel</button>
             <button onClick={() => jogar("tesoura")}>Tesoura</button>

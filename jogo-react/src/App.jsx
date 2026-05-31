@@ -43,6 +43,8 @@ function App() {
             <button onClick={() => jogar("pedra")}>Pedra</button>
             <button onClick={() => jogar("papel")}>Papel</button>
             <button onClick={() => jogar("tesoura")}>Tesoura</button>
+            <button onClick={() => jogar("lagarto")}>Lagarto</button>
+            <button onClick={() => jogar("spock")}>Spock</button>
 
             <div style={{ marginTop: '20px' }}>
                 <p><strong>Você escolheu:</strong> {escolhaDoUsuario} </p>

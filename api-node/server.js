@@ -48,5 +48,5 @@ app.get('/jogar/:escolha', (req, res) => {
 });
 
 app.listen(3000, () => {
-    console.log('Servidor rodando na porta 3000! Acesse: http://localhost:3000');
+    console.log('Servidor rodando na porta 3000 - Acesse: http://localhost:3000');
 });

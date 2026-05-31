@@ -1,38 +1,21 @@
 import { useState } from 'react';
-const elementos = ["pedra", "papel", "tesoura"];
-
-function sortearElementoComputador(elementos) {
-    const indiceAleatorio = Math.floor(Math.random() * elementos.length);
-    return elementos[indiceAleatorio];
-}
-
-function determinarVencedor(jogador, computador){
-    if(jogador === computador){
-        return "Deu empate!";
-    }else if(
-        (jogador === "papel" && computador === "pedra") ||
-        (jogador === "pedra" && computador === "tesoura") ||
-        (jogador === "tesoura" && computador === "papel")
-    ){
-        return "Você ganhou!";
-    }else{
-        return "O computador ganhou!";
-    }
-}
 
 function App() {
     const [escolhaDoUsuario, setEscolhaDoUsuario] = useState("");
     const [escolhaDoComputador, setEscolhaDoComputador] = useState("");
     const [resultadoFinal, setResultadoFinal] = useState("");
 
-    function jogar(escolha) {
-        const computador = sortearElementoComputador(elementos);
-
-        setEscolhaDoUsuario(escolha);
-        setEscolhaDoComputador(computador);
-
-        const resultado = determinarVencedor(escolha, computador);
-        setResultadoFinal(resultado);
+    async function jogar(escolha) {
+        try{
+            const respostaHTTP = await fetch(`http://localhost:3000/jogar/${escolha}`);
+            const dadosDaAPI = await respostaHTTP.json();
+            setEscolhaDoUsuario(dadosDaAPI.usuario);
+            setEscolhaDoComputador(dadosDaAPI.computador);
+            setResultadoFinal(dadosDaAPI.vencedor);
+        }catch(erro){
+            console.error("Erro ao conectar com a API:", erro);
+            setResultadoFinal("Erro no servidor. A API está ligada?");
+        }
     }
 
     return (
